@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox layoutY="61.0" prefHeight="339.0" prefWidth="30.0" />
+      <HBox prefHeight="61.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="61.0" prefWidth="600.0">
+               <children>
+                  <Label layoutX="244.0" layoutY="23.0" text="CH2 Daily Report" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <TabPane layoutX="30.0" layoutY="61.0" prefHeight="291.0" prefWidth="541.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Fetched Info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="labelSensor" layoutX="14.0" layoutY="31.0" text="Sensor" />
+                        <TextField fx:id="sensorValue" alignment="CENTER" editable="false" layoutX="85.0" layoutY="26.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Label fx:id="sensorStatus" layoutX="253.0" layoutY="31.0" text="Status" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Report Status">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <VBox layoutX="570.0" layoutY="61.0" prefHeight="339.0" prefWidth="30.0" />
+   </children>
+</AnchorPane>
