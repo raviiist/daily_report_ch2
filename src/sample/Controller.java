@@ -1,11 +1,17 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,7 +37,6 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //sensorStatus.setVisible(true);
         //sensorStatus1.setVisible(false);
-       final int[] num = {0};
        Thread thread = new Thread(() -> {
            sensorStatus.setText("Waiting for data...");
            for (int i=0; i<5; i++){
@@ -42,14 +47,15 @@ public class Controller implements Initializable {
                } catch (InterruptedException e) {
                    e.printStackTrace();
                }
-               num[0] =1;
-               sensorStatus.setText("Waiting for data ..."+i);
+               //sensorStatus.setText("Waiting for data ..."+i);
            }
            //sensorStatus.setText("Status OK");
            //sensorStatus.setVisible(false);
            //sensorStatus1.setVisible(true);
            //Thread.getState();
-           sensorStatus.setText("Status OK");
+           sensorValue.setText("Not OK");
+           sensorStatus.setVisible(false);
+           setPrevStage(prevStage);
            //statusReport();
        });
        thread.start();
@@ -65,4 +71,21 @@ public class Controller implements Initializable {
            sensorStatus.setText("Status OK");
        });*/
    }
+  Stage prevStage;
+
+    public void setPrevStage(Stage stage){
+         this.prevStage = stage;
+    }
+        public void gotoCreateCategory(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setTitle("CDR");
+        Pane myPane = null;
+        myPane = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Scene scene = new Scene(myPane);
+        stage.setScene(scene);
+
+        prevStage.close();
+
+        stage.show();
+        }
 }
